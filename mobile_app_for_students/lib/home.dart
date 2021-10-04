@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app_for_students/services/data_fetch.dart';
+import 'package:mobile_app_for_students/shared/loading_page.dart';
+import 'package:mobile_app_for_students/subpages/graph.dart';
+import 'package:mobile_app_for_students/subpages/marks_page.dart';
+import 'package:mobile_app_for_students/subpages/payments_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,12 +13,30 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool loading = true;
+
+  // loading data at init state
+  void loadData() async {
+    await DataFetch.fetchMarks();
+    await DataFetch.fetchPayments();
+    setState(() {
+      loading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    loadData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.blue[800],
           title: const Text('Student Management System'),
           bottom: const TabBar(
             tabs: [
@@ -32,13 +55,15 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        body: TabBarView(
-          children: [
-            const Text('Marks'),
-            const Text('Payments'),
-            const Text('Attendence'),
-          ],
-        ),
+        body: loading
+            ? Loading()
+            : TabBarView(
+                children: [
+                  MarksPage(),
+                  PaymentsPage(),
+                  Text('Attendence'),
+                ],
+              ),
       ),
     );
   }
