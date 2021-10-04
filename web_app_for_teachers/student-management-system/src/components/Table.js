@@ -93,7 +93,7 @@ const styles = {
 const TableComponent = () => (
   <div style={styles.container}>
     <CRUDTable
-      caption="Students"
+      caption="Student Registration"
       fetchItems={payload => service.fetchItems(payload)}
     >
       <Fields>
