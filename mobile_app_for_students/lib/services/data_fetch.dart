@@ -8,6 +8,8 @@ class DataFetch {
   static String name = "";
   static List<dynamic> marks = [];
   static List<dynamic> payments = [];
+  static List<dynamic> classDates = [];
+  static Map<String, String> attendence = {};
 
   static List<double> marksValue = [];
   static List<String> paperTitles = [];
@@ -113,6 +115,33 @@ class DataFetch {
         marksValue.add(double.parse(element['marks']) / 100);
         paperTitles.add(element['paper_no']);
       });
+    } else {
+      print('Request failed with status: ${response.statusCode}.');
+    }
+  }
+
+  // fetch attendence details
+  static Future<void> fetchAttendence() async {
+    var url = Uri.https('greaved-eights.000webhostapp.com',
+        '/api/getAttendence.php', {'email': DataFetch.email});
+    // Await the http get response, then decode the json-formatted response.
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      var jsonResponse =
+          convert.jsonDecode(response.body) as Map<String, dynamic>;
+      print('Response: $jsonResponse');
+      DataFetch.classDates = jsonResponse['class_dates'];
+      List<dynamic> tmp = jsonResponse['attendence'];
+
+      tmp.forEach((element) {
+        DataFetch.attendence[element['id']] = element['id'];
+      });
+
+      DataFetch.classDates.forEach((element) {
+        element['presence'] = DataFetch.attendence.containsKey(element['id']);
+      });
+
+      print(DataFetch.classDates);
     } else {
       print('Request failed with status: ${response.statusCode}.');
     }

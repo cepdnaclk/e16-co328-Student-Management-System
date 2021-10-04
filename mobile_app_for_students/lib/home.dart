@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app_for_students/services/data_fetch.dart';
 import 'package:mobile_app_for_students/shared/loading_page.dart';
+import 'package:mobile_app_for_students/subpages/attendence_page.dart';
 import 'package:mobile_app_for_students/subpages/graph.dart';
 import 'package:mobile_app_for_students/subpages/marks_page.dart';
 import 'package:mobile_app_for_students/subpages/payments_page.dart';
@@ -19,6 +20,7 @@ class _HomePageState extends State<HomePage> {
   void loadData() async {
     await DataFetch.fetchMarks();
     await DataFetch.fetchPayments();
+    await DataFetch.fetchAttendence();
     setState(() {
       loading = false;
     });
@@ -57,11 +59,11 @@ class _HomePageState extends State<HomePage> {
         ),
         body: loading
             ? Loading()
-            : TabBarView(
+            : const TabBarView(
                 children: [
                   MarksPage(),
                   PaymentsPage(),
-                  Text('Attendence'),
+                  AttendencePage(),
                 ],
               ),
       ),
