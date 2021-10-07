@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
 
 export default function NavBar(){
 
@@ -31,9 +31,7 @@ export default function NavBar(){
 
                 <Nav.Link href="/deets">More deets</Nav.Link>
 
-                <Nav.Link eventKey={2} href="/memes">
-                    Dank memes
-                </Nav.Link>
+                <Button variant="outline-primary" size="sm">Logout</Button>
                 
                 </Nav>
 
