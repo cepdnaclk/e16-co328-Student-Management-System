@@ -73,7 +73,7 @@ const service = {
   update: (data) => {
     const task = tasks.find(t => t.id === data.id);
     task.institute = data.institute;
-    task.firstname = data.fistname;
+    task.firstname = data.firstname;
     task.lastname = data.lastname;
     task.schcool = data.lastname;
     task.description = data.description;
