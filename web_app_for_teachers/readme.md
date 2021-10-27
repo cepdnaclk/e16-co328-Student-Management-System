@@ -8,7 +8,7 @@
 
 ![addmission_form](https://github.com/thusharakart/e16-co328-Student-Management-System/blob/main/web_app_for_teachers/ui_images/addmission_form.png?raw=true)
 
-#### Attendance Form4
+#### Attendance Form
 
 ![attendance](https://github.com/thusharakart/e16-co328-Student-Management-System/blob/main/web_app_for_teachers/ui_images/attendance.png?raw=true)
 
