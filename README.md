@@ -17,3 +17,9 @@
 #### Behavioral  perspective - Activity diagram 
 
 ![image](https://raw.githubusercontent.com/cepdnaclk/e16-co328-Student-Management-System/main/diagrams/activity%20student-student.jpg?raw=true)
+
+
+#### Databse design - ER diagram 
+
+![image](https://raw.githubusercontent.com/cepdnaclk/e16-co328-Student-Management-System/main/diagrams/328%20ER.jpg?raw=true)
+
