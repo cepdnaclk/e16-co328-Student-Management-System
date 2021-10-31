@@ -1,5 +1,12 @@
 # Student Management System
 
+#### Student App
+
+![image](https://raw.githubusercontent.com/cepdnaclk/e16-co328-Student-Management-System/main/mobile_app_for_students/UI%20preview/Screenshot%20from%202021-10-31%2014-47-11.png?raw=true)
+
+![image](https://raw.githubusercontent.com/cepdnaclk/e16-co328-Student-Management-System/main/mobile_app_for_students/UI%20preview/Screenshot%20from%202021-10-31%2014-47-18.png?raw=true)
+
+
 ### Desging diagrams
 
 #### Interaction perspective - use case diagram
@@ -22,4 +29,6 @@
 #### Databse design - ER diagram 
 
 ![image](https://raw.githubusercontent.com/cepdnaclk/e16-co328-Student-Management-System/main/diagrams/328%20ER.jpg?raw=true)
+
+
 
